@@ -10,7 +10,7 @@ This portfolio showcases my projects, skills, and experience, designed with a mo
 ## 🚀 Live Website
 
 🔗 **Live Portfolio:**  
-https://portfolio-5logcuw2r-bhumis-projects-51b1c17d.vercel.app/
+[https://portfolio-5logcuw2r-bhumis-projects-51b1c17d.vercel.app/](https://portfolio-bs-nine.vercel.app/)
 
 
 ## 📸 Preview
