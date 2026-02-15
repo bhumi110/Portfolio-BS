@@ -7,7 +7,8 @@ import profile from "../assets/profile.jpeg";
 
 function Hero() {
   return (
-    <section id="hero"
+    <section
+      id="hero"
       className="hero-section d-flex align-items-center"
       style={{
         position: "relative",
@@ -108,23 +109,23 @@ function Hero() {
               >
                 View Work
               </Button>
-
-              <Button
-                variant="outlined"
-                startIcon={<DownloadIcon />}
-                sx={{
-                  borderColor: "#444",
-                  color: "#ccc",
-                  textTransform: "none",
-                  mr: 2,
-                  px: 3,
-                  py: 1.2,
-                  borderRadius: "10px",
-                }}
-              >
-                Resume
-              </Button>
-
+              <a href="/RESUME - Bhumi Saraogi.pdf" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outlined"
+                  // startIcon={<DownloadIcon />}
+                  sx={{
+                    borderColor: "#444",
+                    color: "#ccc",
+                    textTransform: "none",
+                    mr: 2,
+                    px: 3,
+                    py: 1.2,
+                    borderRadius: "10px",
+                  }}
+                >
+                  <i className="fa-regular fa-eye"></i> Resume
+                </Button>
+              </a>
               {/* <Button
                 startIcon={<MailOutlineIcon />}
                 sx={{
