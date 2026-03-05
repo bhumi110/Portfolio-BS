@@ -10,10 +10,20 @@ const projects = [
     title: "Anonify: Spill the Tea. Anonymously...",
     description:
       "Anonify is a web platform that allows users to share stories, confessions, and opinions completely anonymously. Whether it’s drama, advice, or unfiltered thoughts, Anonify is the space to speak your truth without judgment.",
-    tech: ["HTML", "CSS","JS","EJS","MongoDB","Express-Session"],
-    demo: "https://anonify-4p60.onrender.com",
-    source: "https://github.com/bhumi110/Anonify.git",
+    tech: ["HTML", "CSS","JS","React","MongoDB","Joi","MERN"],
+    demo: "https://anonify-v2.vercel.app/",
+    source: "https://github.com/bhumi110/AnonifyV2.git",
   },
+  // {
+  //   id: 2,
+  //   image: ,
+  //   title: "Anonify: Spill the Tea. Anonymously...",
+  //   description:
+  //     "Anonify is a web platform that allows users to share stories, confessions, and opinions completely anonymously. Whether it’s drama, advice, or unfiltered thoughts, Anonify is the space to speak your truth without judgment.",
+  //   tech: ["HTML", "CSS","JS","EJS","MongoDB","Express-Session"],
+  //   demo: "https://anonify-v2.vercel.app/",
+  //   source: "https://github.com/bhumi110/AnonifyV2.git",
+  // },
   {
     id: 2,
     image: tourIt,
