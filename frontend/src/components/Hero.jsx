@@ -109,7 +109,7 @@ function Hero() {
               >
                 View Work
               </Button>
-              <a href="/RESUME - Bhumi Saraogi.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/RESUME_Bhumi Saraogi" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outlined"
                   // startIcon={<DownloadIcon />}
