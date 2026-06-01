@@ -29,7 +29,7 @@ function About() {
               <p className="mb-1">NSHM KNOWLEDGE CAMPUS, DURGAPUR</p>
               <small>2023 – 2027</small>
             </div>
-            <span className="gpa">GPA: 7.12/10</span>
+            <span className="gpa">GPA: 7.21/10</span>
           </div>
         </div>
       </div>

@@ -1,182 +1,325 @@
-import PixelSnow from "../ReactBits/PixelSnow";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Button, Typography, Box } from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import profile from "../assets/profile.jpeg";
+import portfolioVideo from "../assets/portfolio_vd.mp4";
 
 function Hero() {
+  const videoRef = useRef(null);
+  const fadingOutRef = useRef(false);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const FADE_DURATION = 500;
+    const FADE_OUT_TRIGGER = 0.55;
+
+    function cancelRaf() {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    }
+
+    function fadeTo(targetOpacity, duration, onComplete) {
+      cancelRaf();
+      const start = performance.now();
+      const startOpacity = parseFloat(video.style.opacity) || 0;
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        video.style.opacity =
+          startOpacity + (targetOpacity - startOpacity) * progress;
+        if (progress < 1) {
+          rafRef.current = requestAnimationFrame(step);
+        } else {
+          rafRef.current = null;
+          onComplete && onComplete();
+        }
+      }
+      rafRef.current = requestAnimationFrame(step);
+    }
+
+    function handleCanPlay() {
+      video.style.opacity = 0;
+      fadingOutRef.current = false;
+      fadeTo(1, FADE_DURATION);
+    }
+
+    function handleTimeUpdate() {
+      const remaining = video.duration - video.currentTime;
+      if (remaining <= FADE_OUT_TRIGGER && !fadingOutRef.current) {
+        fadingOutRef.current = true;
+        fadeTo(0, FADE_DURATION);
+      }
+    }
+
+    function handleEnded() {
+      cancelRaf();
+      video.style.opacity = 0;
+      setTimeout(() => {
+        fadingOutRef.current = false;
+        video.currentTime = 0;
+        video.play().then(() => fadeTo(1, FADE_DURATION));
+      }, 100);
+    }
+
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener("ended", handleEnded);
+
+    return () => {
+      cancelRaf();
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
   return (
     <section
       id="hero"
-      className="hero-section d-flex align-items-center"
       style={{
         position: "relative",
         minHeight: "100vh",
-        background: "#0B0F1A",
+        width: "100%",
+        background: "#000",
         overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      {/* Background Snow */}
+      {/* ── Video: absolutely fills the section, no translateY clipping issues ── */}
+      <video
+        ref={videoRef}
+        src={portfolioVideo}
+        autoPlay
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          minWidth: "100%",
+          minHeight: "100%",
+          width: "auto",
+          height: "auto",
+          transform: "translate(-50%, -33%)",
+          objectFit: "cover",
+          opacity: 0,
+          zIndex: 0,
+        }}
+      />
+
+      {/*Gradient overlay*/}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 0,
-          pointerEvents: "none",
+          zIndex: 1,
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.72) 100%)",
         }}
-      >
-        <PixelSnow
-          color="#ffffff"
-          flakeSize={0.01}
-          minFlakeSize={1.25}
-          pixelResolution={380}
-          speed={0.6}
-          density={0.3}
-          direction={125}
-          brightness={0.6}
-          depthFade={8}
-          farPlane={20}
-          gamma={0.4545}
-          variant="round"
-        />
-      </div>
+      />
 
-      {/* Content */}
+      {/*Vignette*/}
       <div
-        className="container"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          background:
+            "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%)",
+        }}
+      />
+
+      {/*Hero content*/}
+      <div
         style={{
           position: "relative",
           zIndex: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          width: "100%",
+          maxWidth: "820px",
+          padding: "120px 24px 80px",
+          boxSizing: "border-box",
         }}
       >
-        <div className="row align-items-center">
-          {/* LEFT SIDE */}
-          <div className="col-md-6 text-white">
-            <Typography
-              variant="subtitle2"
-              sx={{
-                color: "#f261bf",
-                letterSpacing: 2,
-                fontWeight: 600,
-              }}
-            >
-              FULL-STACK DEVELOPER
-            </Typography>
-
-            <Typography
-              sx={{
-                fontSize: { xs: "2.5rem", md: "3.5rem" },
-                fontWeight: 700,
-                lineHeight: 1.2,
-                mt: 2,
-              }}
-            >
-              I build scalable web systems that
-              <span
-                style={{
-                  background: "linear-gradient(90deg,#6366F1,#f261bf)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                {" "}
-                solve real problems.
-              </span>
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{ color: "#aaa", mt: 3, maxWidth: 500 }}
-            >
-              Passionate developer with expertise in building scalable web
-              applications. I love turning complex problems into elegant,
-              user-friendly solutions.
-            </Typography>
-
-            <Box mt={4}>
-              <Button
-                variant="contained"
-                href="#projects"
-                sx={{
-                  background: "linear-gradient(90deg,#6366F1,#7C3AED)",
-                  textTransform: "none",
-                  mr: 2,
-                  px: 3,
-                  py: 1.2,
-                  borderRadius: "10px",
-                }}
-              >
-                View Work
-              </Button>
-              <a href="/RESUME_Bhumi Saraogi.pdf" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outlined"
-                  // startIcon={<DownloadIcon />}
-                  sx={{
-                    borderColor: "#444",
-                    color: "#ccc",
-                    textTransform: "none",
-                    mr: 2,
-                    px: 3,
-                    py: 1.2,
-                    borderRadius: "10px",
-                  }}
-                >
-                  <i className="fa-regular fa-eye"></i> Resume
-                </Button>
-              </a>
-              {/* <Button
-                startIcon={<MailOutlineIcon />}
-                sx={{
-                  borderColor: "#444",
-                  color: "#ccc",
-                  textTransform: "none",
-                  mr: 2,
-                  px: 3,
-                  py: 1.2,
-                  borderRadius: "10px",
-                }}
-              >
-                Contact
-              </Button> */}
-            </Box>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="col-md-6 mt-5 mt-md-0 d-flex justify-content-center">
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "420px",
-                padding: "15px",
-                borderRadius: "25px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                backdropFilter: "blur(12px)",
-                boxShadow: "0 0 40px rgba(124,58,237,0.25)",
-              }}
-            >
-              <div
-                style={{
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  src={profile}
-                  alt="Profile"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
+        {/* Badge */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "6px 18px",
+            borderRadius: "999px",
+            background: "rgba(242,97,191,0.1)",
+            border: "1px solid rgba(242,97,191,0.28)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            marginBottom: "28px",
+          }}
+        >
+          <span
+            style={{
+              width: "6px",
+              height: "6px",
+              flexShrink: 0,
+              borderRadius: "50%",
+              background: "#f261bf",
+              display: "inline-block",
+              boxShadow: "0 0 8px #f261bf",
+            }}
+          />
+          <Typography
+            component="span"
+            sx={{
+              color: "#f261bf",
+              letterSpacing: "0.22em",
+              fontWeight: 600,
+              fontSize: { xs: "0.6rem", sm: "0.65rem" },
+              lineHeight: 1,
+              whiteSpace: "nowrap",
+            }}
+          >
+            FULL STACK DEVELOPER
+          </Typography>
         </div>
+
+        {/* Heading */}
+        <Typography
+          component="h1"
+          sx={{
+            fontSize: { xs: "2.1rem", sm: "2.9rem", md: "3.8rem", lg: "4.4rem" },
+            fontWeight: 800,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "#fff",
+            textShadow: "0 4px 32px rgba(0,0,0,0.7)",
+            mb: 0,
+          }}
+        >
+          I build scalable
+          <br />
+          web systems that
+          <br />
+          <span
+            style={{
+              background:
+                "linear-gradient(90deg, #6366F1 10%, #a855f7 55%, #f261bf 90%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            solve real problems.
+          </span>
+        </Typography>
+
+        {/* Accent line */}
+        <div
+          style={{
+            width: "44px",
+            height: "2px",
+            borderRadius: "2px",
+            background: "linear-gradient(90deg, #6366F1, #f261bf)",
+            margin: "28px auto",
+            opacity: 0.75,
+            flexShrink: 0,
+          }}
+        />
+
+        {/* Subtitle */}
+        <Typography
+          sx={{
+            color: "rgba(255,255,255,0.58)",
+            fontSize: { xs: "0.88rem", sm: "0.95rem", md: "1.05rem" },
+            lineHeight: 1.8,
+            maxWidth: { xs: "100%", sm: "480px" },
+            textShadow: "0 1px 12px rgba(0,0,0,0.6)",
+            mb: { xs: 4, md: 5 },
+          }}
+        >
+          Passionate developer with expertise in building scalable web
+          applications. I love turning complex problems into elegant,
+          user-friendly solutions.
+        </Typography>
+
+        {/* Buttons */}
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: { xs: 1.5, sm: 2 },
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          <Button
+            variant="contained"
+            href="#projects"
+            sx={{
+              background: "linear-gradient(135deg, #6366F1, #7C3AED)",
+              textTransform: "none",
+              px: { xs: 3, sm: 3.5 },
+              py: { xs: 1.1, sm: 1.3 },
+              borderRadius: "12px",
+              fontWeight: 700,
+              fontSize: { xs: "0.88rem", sm: "0.95rem" },
+              letterSpacing: "0.01em",
+              boxShadow:
+                "0 4px 24px rgba(99,102,241,0.45), 0 0 0 1px rgba(99,102,241,0.25)",
+              transition: "all 0.22s ease",
+              "&:hover": {
+                background: "linear-gradient(135deg, #4F52D3, #6A30CC)",
+                boxShadow: "0 8px 32px rgba(99,102,241,0.6)",
+                transform: "translateY(-2px)",
+              },
+            }}
+          >
+            View Work
+          </Button>
+
+          <a
+            href="/Bhumi_Saraogi_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <Button
+              sx={{
+                color: "#fff",
+                textTransform: "none",
+                px: { xs: 3, sm: 3.5 },
+                py: { xs: 1.1, sm: 1.3 },
+                borderRadius: "12px",
+                fontSize: { xs: "0.88rem", sm: "0.95rem" },
+                fontWeight: 600,
+                border: "1px solid rgba(255,255,255,0.18)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                background: "rgba(255,255,255,0.06)",
+                transition: "all 0.22s ease",
+                minWidth: 0,
+                "&:hover": {
+                  borderColor: "rgba(255,255,255,0.38)",
+                  background: "rgba(255,255,255,0.12)",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              <i
+                className="fa-regular fa-eye"
+                style={{ marginRight: "8px", fontSize: "0.9rem" }}
+              />
+              Resume
+            </Button>
+          </a>
+        </Box>
+
       </div>
     </section>
   );
