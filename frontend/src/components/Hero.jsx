@@ -185,7 +185,7 @@ function Hero() {
               whiteSpace: "nowrap",
             }}
           >
-            FULL STACK DEVELOPER
+            FULL STACK DEVELOPER | AI/ML ENTHUSIAST
           </Typography>
         </div>
 
@@ -284,7 +284,7 @@ function Hero() {
           </Button>
 
           <a
-            href="/Bhumi_Saraogi_CV.pdf"
+            href="/Resume_Bhumi.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}

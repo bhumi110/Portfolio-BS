@@ -3,43 +3,82 @@ import anonify from "../assets/anonify.png";
 import tourIt from "../assets/tourIt.png";
 import finlytics from "../assets/Finlytics.png";
 import cfc from "../assets/cfc2k26.png";
+import snapclass from "../assets/snapclass.png";
 const projects = [
   {
     id: 1,
+    image: snapclass,
+    title: "SnapClass",
+    description:
+      "SnapClass is an AI-powered smart attendance management system that automates classroom attendance using facial recognition and optional voice authentication. The platform enables teachers to create and manage subjects, monitor attendance, and share enrollment codes, while students can securely register, enroll in courses, and mark attendance through biometric verification. Built with Python, Streamlit, Supabase, and computer vision techniques, SnapClass provides a scalable, cloud-based solution for modern educational institutions.",
+    tech: [
+      "Python",
+      "Streamlit",
+      "Supabase",
+      "PostgreSQL",
+      "OpenCV",
+      "face_recognition",
+      "dlib",
+      "scikit-learn",
+      "Resemblyzer",
+      "NumPy",
+    ],
+    demo: "https://snap-class-landing-three.vercel.app/",
+    source: "https://github.com/bhumi110/SnapClass.git",
+  },
+  {
+    id: 2,
     image: anonify,
     title: "Anonify: Spill the Tea. Anonymously...",
     description:
-      "Anonify is a web platform that allows users to share stories, confessions, and opinions completely anonymously. Whether it’s drama, advice, or unfiltered thoughts, Anonify is the space to speak your truth without judgment.",
-    tech: ["HTML", "CSS", "JS", "React", "MongoDB", "Joi", "MERN"],
+      "Anonify is a full-stack anonymous social platform where users can freely share confessions, stories, opinions, and discussions without revealing their identity. Built with the MERN stack, it features secure authentication, anonymous posting, commenting, and a modern, responsive user experience.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Joi",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
     demo: "https://anonify-v2.vercel.app/",
     source: "https://github.com/bhumi110/AnonifyV2.git",
   },
   {
-    id: 2,
+    id: 3,
     image: finlytics,
     title: "Finlytics | Expense Approval & Reimbursement System",
     description:
-      "Finlytics is a role-based expense management system designed to streamline how organizations track, approve, and manage employee expenses. The platform follows a structured approval workflow where employees submit expenses, managers review them, and the finance team processes the final payment. This ensures transparency, accountability, and efficient financial tracking.",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
+      "Finlytics is a full-stack, role-based expense management platform that streamlines employee expense submission, approval, and reimbursement workflows. Employees can submit expenses, managers review and approve requests, and finance teams process reimbursements, ensuring transparency, accountability, and efficient financial operations through a secure, workflow-driven system.",
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
     demo: "https://finlytics-tau.vercel.app/",
     source: "https://github.com/bhumi110/Finlytics.git",
   },
 
   {
-    id: 3,
+    id: 4,
     image: cfc,
     title: "CODE FOR CHANGE 2.0",
     description:
       "A modern, responsive website built to announce and showcase all details about the CODE FOR CHANGE 2.0, including event info, schedules, rules, and registration details.",
-    tech: [
-      "MongoDB", "Express.js", "React.js", "Node.js"
-    ],
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
     demo: "https://cfc-hackathon2k26.vercel.app/",
     source: "https://github.com/bhumi110/cfc_hackathon2k26.git",
   },
 
   {
-    id: 4,
+    id: 5,
     image: tourIt,
     title: "Tour-it",
     description:
@@ -57,16 +96,6 @@ const projects = [
     ],
     demo: "https://tour-it-6o7q.onrender.com/",
     source: "https://github.com/bhumi110/Tour-it.git",
-  },
-  {
-    id: 5,
-    image: memoryFlix,
-    title: "MemoryFlix",
-    description:
-      "Your Personal Video Diary MemoryFlix is a video-based personal diary application that allows users to organize, and relive their memories through short videos. Inspired by Netflix’s clean and intuitive UI, MemoryFlix presents personal moments in a visually engaging, scrollable format while maintaining privacy and simplicity. Built using the MERN Stack, MemoryFlix focuses on real world usability, performance, and scalable architecture.",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    demo: "#",
-    source: "https://github.com/bhumi110/MemoryFlix.git",
   },
 ];
 
