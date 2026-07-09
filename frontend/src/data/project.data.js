@@ -4,6 +4,8 @@ import tourIt from "../assets/tourIt.png";
 import finlytics from "../assets/Finlytics.png";
 import cfc from "../assets/cfc2k26.png";
 import snapclass from "../assets/snapclass.png";
+import scenesense from "../assets/scenesense.png";
+
 const projects = [
   {
     id: 1,
@@ -27,9 +29,26 @@ const projects = [
     source: "https://github.com/bhumi110/SnapClass.git",
   },
   {
-    id: 2,
+  id: 2,
+  image: scenesense,
+  title: "SceneSense AI | Semantic Movie Retrieval",
+  description:
+    "An AI-powered semantic movie search engine that uses transformer embeddings and vector similarity search to understand natural language queries and recommend movies based on meaning rather than keywords. Built with Sentence Transformers, FAISS, and Streamlit for fast, scalable, and context-aware movie discovery.",
+  tech: [
+    "Python",
+    "Sentence Transformers",
+    "FAISS",
+    "Streamlit",
+    "Pandas",
+    "NumPy"
+  ],
+  demo: "https://scenesense.streamlit.app/",
+  source: "https://github.com/bhumi110/SceneSense-Search-AI"
+},
+  {
+    id: 3,
     image: anonify,
-    title: "Anonify: Spill the Tea. Anonymously...",
+    title: "Anonify | Anonymous Social Platform",
     description:
       "Anonify is a full-stack anonymous social platform where users can freely share confessions, stories, opinions, and discussions without revealing their identity. Built with the MERN stack, it features secure authentication, anonymous posting, commenting, and a modern, responsive user experience.",
     tech: [
@@ -47,7 +66,7 @@ const projects = [
     source: "https://github.com/bhumi110/AnonifyV2.git",
   },
   {
-    id: 3,
+    id: 4,
     image: finlytics,
     title: "Finlytics | Expense Approval & Reimbursement System",
     description:
@@ -67,7 +86,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     image: cfc,
     title: "CODE FOR CHANGE 2.0",
     description:
@@ -78,7 +97,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     image: tourIt,
     title: "Tour-it",
     description:
