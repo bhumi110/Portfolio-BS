@@ -7,16 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
 function App() {
 
   return (
     <>
-    <Navbar/>
+
+      <Navbar/>
       <Hero/>
       <About/>
       <Project/>
       <Contact/>
       <Footer/>
+
+    
     </>
   )
 }

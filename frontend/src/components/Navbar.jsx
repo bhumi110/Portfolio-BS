@@ -14,7 +14,7 @@ const Navbar = () => {
       <Toolbar className="container d-flex justify-content-between">
         
         {/* Logo */}
-        <Typography variant="h6" sx={{ fontWeight: "bold", color: "#bd088c" }}>
+        <Typography class="nav-logo"  href="#hero" component="a">
           BS.
         </Typography>
 

@@ -89,7 +89,6 @@ function Hero() {
         justifyContent: "center",
       }}
     >
-      {/* ── Video: absolutely fills the section, no translateY clipping issues ── */}
       <video
         ref={videoRef}
         src={portfolioVideo}
@@ -209,7 +208,7 @@ function Hero() {
           <span
             style={{
               background:
-                "linear-gradient(90deg, #6366F1 10%, #a855f7 55%, #f261bf 90%)",
+                "linear-gradient(90deg, #fa529b 10%, #a855f7 55%, #f53689 90%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -219,7 +218,6 @@ function Hero() {
           </span>
         </Typography>
 
-        {/* Accent line */}
         <div
           style={{
             width: "44px",
@@ -235,7 +233,7 @@ function Hero() {
         {/* Subtitle */}
         <Typography
           sx={{
-            color: "rgba(255,255,255,0.58)",
+            color: "rgba(255,255,255,0.9)",
             fontSize: { xs: "0.88rem", sm: "0.95rem", md: "1.05rem" },
             lineHeight: 1.8,
             maxWidth: { xs: "100%", sm: "480px" },

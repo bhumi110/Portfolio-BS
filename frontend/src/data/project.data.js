@@ -10,7 +10,7 @@ const projects = [
   {
     id: 1,
     image: snapclass,
-    title: "SnapClass",
+    title: "SnapClass | Smart Attendance System",
     description:
       "SnapClass is an AI-powered smart attendance management system that automates classroom attendance using facial recognition and optional voice authentication. The platform enables teachers to create and manage subjects, monitor attendance, and share enrollment codes, while students can securely register, enroll in courses, and mark attendance through biometric verification. Built with Python, Streamlit, Supabase, and computer vision techniques, SnapClass provides a scalable, cloud-based solution for modern educational institutions.",
     tech: [

@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "./Reveal";
 
 function About() {
   return (
@@ -6,7 +7,7 @@ function About() {
   <div className="container">
     <div className="row">
       {/* LEFT SIDE */}
-      <div className="col-md-6 mb-5 mb-md-0">
+      <Reveal as="div" direction="left" className="col-md-6 mb-5 mb-md-0">
         <h1 className="section-title">About Me</h1>
         <p className="section-subtitle">
           A bit about who I am and what drives me.
@@ -32,10 +33,10 @@ function About() {
             <span className="gpa">GPA: 7.21/10</span>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* RIGHT SIDE */}
-      <div className="col-md-6">
+      <Reveal as="div" direction="right" delay={150} className="col-md-6">
         <h5 className="mb-4">Key Strengths</h5>
 
         <ul className="strength-list">
@@ -45,7 +46,7 @@ function About() {
           <li>Fast learner with passion for new technologies</li>
           <li>Experience with agile methodologies</li>
         </ul>
-      </div>
+      </Reveal>
     </div>
   </div>
 </section>

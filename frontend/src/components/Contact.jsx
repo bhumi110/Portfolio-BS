@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-
+import Reveal from "./Reveal";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -55,7 +55,7 @@ function Contact() {
   return (
     <section id="contact" className="contact-section py-5">
       <div className="container">
-        <h1 className="section-title mb-3">Get In Touch</h1>
+        <h1 className="contact-section-title mb-3">Get In Touch</h1>
         <p className="section-subtitle mb-5">
           Have an idea or opportunity? Let's build something great.
         </p>

@@ -1,7 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+.reveal {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(70px) scale(0.97);
+}
+
+.reveal-left {
+  transform: translateX(-70px) scale(0.97);
+}
+
+.reveal-right {
+  transform: translateX(70px) scale(0.97);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 body {
   background-color: #0B0F1A;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-logo{
+  font-family: "Bungee Shade", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(206, 1, 127);
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.nav-logo:hover{
+  color:white;
 }
 
 .hero-section {
@@ -29,7 +79,7 @@ body {
 .about-section {
   background-color: #0b0f1c;
   color: #fff;
-  min-height: 100vh;
+
 }
 
 .section-title {
@@ -97,8 +147,10 @@ body {
 
 
 .project-title {
-  font-size: 28px;
-  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -177,9 +229,18 @@ body {
 }
 
 .section-title {
+  font-family: "Outfit", sans-serif;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 900;
   background: linear-gradient(90deg, #7f5af0, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact-section-title {
+  font-family: "Bungee Shade", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #c70560, #e303c9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

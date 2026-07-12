@@ -2,6 +2,7 @@ import React from "react";
 
 import projects from "../data/project.data";
 import { useState } from "react";
+import Reveal from "./Reveal";
 
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -10,7 +11,7 @@ function Project() {
     <>
       <section id="projects" className="projects-section py-5">
         <div className="container">
-          <h1 className="section-title mb-3">Selected Work</h1>
+          <h1 className="section-title mb-3">Projects</h1>
           <p className="section-subtitle mb-5">
             Real-world solutions I've designed and built.
           </p>
@@ -23,7 +24,11 @@ function Project() {
               }`}
             >
               {/* IMAGE SIDE */}
-              <div className="col-md-6 mb-4 mb-md-0">
+              <Reveal
+                as="div"
+                direction={index % 2 !== 0 ? "right" : "left"}
+                className="col-md-6 mb-4 mb-md-0"
+              >
                 <div className="project-image-wrapper">
                   <img
                     src={project.image}
@@ -31,10 +36,15 @@ function Project() {
                     className="project-image "
                   />
                 </div>
-              </div>
+              </Reveal>
 
               {/* CONTENT SIDE */}
-              <div className="col-md-6">
+              <Reveal
+                as="div"
+                direction={index % 2 !== 0 ? "left" : "right"}
+                delay={200}
+                className="col-md-6"
+              >
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.description}</p>
 
@@ -60,7 +70,7 @@ function Project() {
                     Case Study →
                   </button> */}
                 </div>
-              </div>
+              </Reveal>
             </div>
           ))}
         </div>
