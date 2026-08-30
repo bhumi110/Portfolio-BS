@@ -5,10 +5,31 @@ import finlytics from "../assets/Finlytics.png";
 import cfc from "../assets/cfc2k26.png";
 import snapclass from "../assets/snapclass.png";
 import scenesense from "../assets/scenesense.png";
+import interviewhive from "../assets/interviewHive.png";
 
 const projects = [
   {
-    id: 1,
+  id: 1,
+  image: interviewhive,
+  title: "InterviewHive | AI-Powered Adaptive Interview Platform",
+  description:
+    "An AI-powered technical interview platform that simulates an adaptive interview using multiple specialized AI agents. InterviewHive analyzes a candidate's resume and target role, generates role-specific questions, evaluates answers across technical accuracy, depth, reasoning, and communication, challenges weak responses, adapts question difficulty, and produces a detailed final interview report. Built with FastAPI, Groq, Sentence Transformers, Pydantic, React, and PixiJS.",
+  tech: [
+    "Python",
+    "FastAPI",
+    "Groq",
+    "LLM Agents",
+    "Sentence Transformers",
+    "Pydantic",
+    "PyMuPDF",
+    "React",
+    "PixiJS",
+  ],
+  demo: "https://interview-hive-kappa.vercel.app/",
+  source: "https://github.com/bhumi110/InterviewHive",
+},
+  {
+    id: 2,
     image: snapclass,
     title: "SnapClass | Smart Attendance System",
     description:
@@ -29,7 +50,7 @@ const projects = [
     source: "https://github.com/bhumi110/SnapClass.git",
   },
   {
-  id: 2,
+  id: 3,
   image: scenesense,
   title: "SceneSense AI | Semantic Movie Retrieval",
   description:
@@ -46,7 +67,7 @@ const projects = [
   source: "https://github.com/bhumi110/SceneSense-Search-AI"
 },
   {
-    id: 3,
+    id: 4,
     image: anonify,
     title: "Anonify | Anonymous Social Platform",
     description:
@@ -66,7 +87,7 @@ const projects = [
     source: "https://github.com/bhumi110/AnonifyV2.git",
   },
   {
-    id: 4,
+    id: 5,
     image: finlytics,
     title: "Finlytics | Expense Approval & Reimbursement System",
     description:
@@ -85,37 +106,37 @@ const projects = [
     source: "https://github.com/bhumi110/Finlytics.git",
   },
 
-  {
-    id: 5,
-    image: cfc,
-    title: "CODE FOR CHANGE 2.0",
-    description:
-      "A modern, responsive website built to announce and showcase all details about the CODE FOR CHANGE 2.0, including event info, schedules, rules, and registration details.",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
-    demo: "https://cfc-hackathon2k26.vercel.app/",
-    source: "https://github.com/bhumi110/cfc_hackathon2k26.git",
-  },
+  // {
+  //   id: 6,
+  //   image: cfc,
+  //   title: "CODE FOR CHANGE 2.0",
+  //   description:
+  //     "A modern, responsive website built to announce and showcase all details about the CODE FOR CHANGE 2.0, including event info, schedules, rules, and registration details.",
+  //   tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
+  //   demo: "https://cfc-hackathon2k26.vercel.app/",
+  //   source: "https://github.com/bhumi110/cfc_hackathon2k26.git",
+  // },
 
-  {
-    id: 6,
-    image: tourIt,
-    title: "Tour-it",
-    description:
-      "A full-stack web application that replicates the core features of Airbnb. Users can create listings, upload images, leave reviews, and manage their own properties with secure authentication and authorization.",
-    tech: [
-      "HTML",
-      "CSS",
-      "JS",
-      "EJS",
-      "MongoDB",
-      "Cloudinary",
-      "Express-Session",
-      "Multer",
-      "Joi",
-    ],
-    demo: "https://tour-it-6o7q.onrender.com/",
-    source: "https://github.com/bhumi110/Tour-it.git",
-  },
+  // {
+  //   id: 7,
+  //   image: tourIt,
+  //   title: "Tour-it",
+  //   description:
+  //     "A full-stack web application that replicates the core features of Airbnb. Users can create listings, upload images, leave reviews, and manage their own properties with secure authentication and authorization.",
+  //   tech: [
+  //     "HTML",
+  //     "CSS",
+  //     "JS",
+  //     "EJS",
+  //     "MongoDB",
+  //     "Cloudinary",
+  //     "Express-Session",
+  //     "Multer",
+  //     "Joi",
+  //   ],
+  //   demo: "https://tour-it-6o7q.onrender.com/",
+  //   source: "https://github.com/bhumi110/Tour-it.git",
+  // },
 ];
 
 export default projects;

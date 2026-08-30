@@ -282,7 +282,7 @@ function Hero() {
           </Button>
 
           <a
-            href="/Resume_Bhumi_Saraogi.pdf"
+            href="/Bhumi Saraogi_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
