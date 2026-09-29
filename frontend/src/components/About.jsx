@@ -16,9 +16,9 @@ function About() {
         <div className="info-card">
           <h5><i className="fa-solid fa-bullseye"></i> Career Objective</h5>
           <p>
-            Seeking opportunities to leverage my full-stack development
-            expertise in building impactful products that solve real-world
-            problems at scale.
+            Seeking opportunities to apply my skills in data analysis, business
+    intelligence, and problem-solving to transform data into actionable
+    insights and support data-driven decision-making.
           </p>
         </div>
 
@@ -40,12 +40,12 @@ function About() {
         <h5 className="mb-4">Key Strengths</h5>
 
         <ul className="strength-list">
-          <li>Strong problem-solving and analytical thinking</li>
-          <li>Clean, maintainable code architecture</li>
-          <li>Effective cross-team communication</li>
-          <li>Fast learner with passion for new technologies</li>
-          <li>Experience with agile methodologies</li>
-        </ul>
+  <li>Strong analytical and problem-solving skills</li>
+  <li>Data-driven thinking and attention to detail</li>
+  <li>Ability to translate data into actionable insights</li>
+  <li>Clear communication of findings and recommendations</li>
+  <li>Quick learner with a curiosity for business and data</li>
+</ul>
       </Reveal>
     </div>
   </div>

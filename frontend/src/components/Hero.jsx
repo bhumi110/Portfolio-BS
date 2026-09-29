@@ -184,7 +184,7 @@ function Hero() {
               whiteSpace: "nowrap",
             }}
           >
-            FULL STACK DEVELOPER | AI/ML ENTHUSIAST
+            DATA & BUSINESS ANALYST
           </Typography>
         </div>
 
@@ -192,7 +192,12 @@ function Hero() {
         <Typography
           component="h1"
           sx={{
-            fontSize: { xs: "2.1rem", sm: "2.9rem", md: "3.8rem", lg: "4.4rem" },
+            fontSize: {
+              xs: "2.1rem",
+              sm: "2.9rem",
+              md: "3.8rem",
+              lg: "4.4rem",
+            },
             fontWeight: 800,
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
@@ -201,9 +206,9 @@ function Hero() {
             mb: 0,
           }}
         >
-          I build scalable
+          I turn data into
           <br />
-          web systems that
+          meaningful insights
           <br />
           <span
             style={{
@@ -214,7 +219,7 @@ function Hero() {
               backgroundClip: "text",
             }}
           >
-            solve real problems.
+            that drive decisions.
           </span>
         </Typography>
 
@@ -241,9 +246,10 @@ function Hero() {
             mb: { xs: 4, md: 5 },
           }}
         >
-          Passionate developer with expertise in building scalable web
-          applications. I love turning complex problems into elegant,
-          user-friendly solutions.
+           I enjoy working with data to uncover patterns, understand business
+  problems, and turn complex information into clear, actionable insights.
+  With a foundation in SQL, Python, Excel, and Power BI, I build
+  data-driven solutions that support better decisions.
         </Typography>
 
         {/* Buttons */}
@@ -282,7 +288,7 @@ function Hero() {
           </Button>
 
           <a
-            href="/Bhumi Saraogi_Resume.pdf"
+            href="/BHUMI_RESUME.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
@@ -317,7 +323,6 @@ function Hero() {
             </Button>
           </a>
         </Box>
-
       </div>
     </section>
   );

@@ -1,35 +1,91 @@
-import memoryFlix from "../assets/memoryFlix.png";
 import anonify from "../assets/anonify.png";
-import tourIt from "../assets/tourIt.png";
 import finlytics from "../assets/Finlytics.png";
-import cfc from "../assets/cfc2k26.png";
 import snapclass from "../assets/snapclass.png";
 import scenesense from "../assets/scenesense.png";
 import interviewhive from "../assets/interviewHive.png";
+import ecommerceSales from "../assets/performance_analysis.png";
+import ecommerceLogistics from "../assets/Logistic_analysis.png";
+import customerChurn from "../assets/churn_analysis.png";
 
 const projects = [
   {
-  id: 1,
-  image: interviewhive,
-  title: "InterviewHive | AI-Powered Adaptive Interview Platform",
-  description:
-    "An AI-powered technical interview platform that simulates an adaptive interview using multiple specialized AI agents. InterviewHive analyzes a candidate's resume and target role, generates role-specific questions, evaluates answers across technical accuracy, depth, reasoning, and communication, challenges weak responses, adapts question difficulty, and produces a detailed final interview report. Built with FastAPI, Groq, Sentence Transformers, Pydantic, React, and PixiJS.",
-  tech: [
-    "Python",
-    "FastAPI",
-    "Groq",
-    "LLM Agents",
-    "Sentence Transformers",
-    "Pydantic",
-    "PyMuPDF",
-    "React",
-    "PixiJS",
-  ],
-  demo: "https://interview-hive-kappa.vercel.app/",
-  source: "https://github.com/bhumi110/InterviewHive",
-},
+    id: 1,
+    image: ecommerceSales,
+    title: "E-Commerce Sales Performance Dashboard",
+    description:
+      "An interactive Power BI dashboard designed to analyze e-commerce sales performance across time, product categories, regions, and key sales metrics. The dashboard tracks revenue, orders, quantity, average order value, and sales trends to identify changes in business performance and areas requiring attention.",
+    tech: [
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "Data Analysis",
+      "Data Visualization",
+      "Business Intelligence",
+    ],
+    demo: "https://github.com/bhumi110/E-Commerce-Sales-Performance-Analysis.git",
+    source: "https://github.com/bhumi110/E-Commerce-Sales-Performance-Analysis.git",
+  },
+
   {
     id: 2,
+    image: customerChurn,
+    title: "Customer Churn Analysis Dashboard",
+    description:
+      "An interactive Power BI dashboard that analyzes customer churn patterns for a telecommunications company. The analysis examines churn rates across contract types, tenure groups, internet services, payment methods, and customer characteristics to identify customer segments with higher observed churn rates.",
+    tech: [
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "SQL",
+      "Data Analysis",
+      "Data Visualization",
+      "Business Intelligence",
+    ],
+    demo: "https://github.com/bhumi110/Customer-Churn-Analysis.git",
+    source: "https://github.com/bhumi110/Customer-Churn-Analysis.git",
+  },
+
+  {
+    id: 3,
+    image: ecommerceLogistics,
+    title: "E-Commerce Delivery & Logistics Performance Dashboard",
+    description:
+      "An interactive Power BI dashboard analyzing e-commerce delivery and logistics performance across 50,000 orders. The dashboard evaluates late-delivery rates, shipping methods, carriers, warehouse delays, weather conditions, customer ratings, shipping costs, and delivery trends to identify operational patterns and areas requiring further investigation.",
+    tech: [
+      "Power BI",
+      "MySQL",
+      "SQL",
+      "DAX",
+      "Power Query",
+      "Data Analysis",
+      "Data Visualization",
+      "Business Intelligence",
+    ],
+    demo: "https://github.com/bhumi110/E-Commerce-Delivery-Logistics-Analysis.git",
+    source: "https://github.com/bhumi110/E-Commerce-Delivery-Logistics-Analysis.git",
+  },
+  {
+    id: 4,
+    image: interviewhive,
+    title: "InterviewHive | AI-Powered Adaptive Interview Platform",
+    description:
+      "An AI-powered technical interview platform that simulates an adaptive interview using multiple specialized AI agents. InterviewHive analyzes a candidate's resume and target role, generates role-specific questions, evaluates answers across technical accuracy, depth, reasoning, and communication, challenges weak responses, adapts question difficulty, and produces a detailed final interview report. Built with FastAPI, Groq, Sentence Transformers, Pydantic, React, and PixiJS.",
+    tech: [
+      "Python",
+      "FastAPI",
+      "Groq",
+      "LLM Agents",
+      "Sentence Transformers",
+      "Pydantic",
+      "PyMuPDF",
+      "React",
+      "PixiJS",
+    ],
+    demo: "https://interview-hive-kappa.vercel.app/",
+    source: "https://github.com/bhumi110/InterviewHive",
+  },
+  {
+    id: 5,
     image: snapclass,
     title: "SnapClass | Smart Attendance System",
     description:
@@ -50,24 +106,24 @@ const projects = [
     source: "https://github.com/bhumi110/SnapClass.git",
   },
   {
-  id: 3,
-  image: scenesense,
-  title: "SceneSense AI | Semantic Movie Retrieval",
-  description:
-    "An AI-powered semantic movie search engine that uses transformer embeddings and vector similarity search to understand natural language queries and recommend movies based on meaning rather than keywords. Built with Sentence Transformers, FAISS, and Streamlit for fast, scalable, and context-aware movie discovery.",
-  tech: [
-    "Python",
-    "Sentence Transformers",
-    "FAISS",
-    "Streamlit",
-    "Pandas",
-    "NumPy"
-  ],
-  demo: "https://scenesense.streamlit.app/",
-  source: "https://github.com/bhumi110/SceneSense-Search-AI"
-},
+    id: 6,
+    image: scenesense,
+    title: "SceneSense AI | Semantic Movie Retrieval",
+    description:
+      "An AI-powered semantic movie search engine that uses transformer embeddings and vector similarity search to understand natural language queries and recommend movies based on meaning rather than keywords. Built with Sentence Transformers, FAISS, and Streamlit for fast, scalable, and context-aware movie discovery.",
+    tech: [
+      "Python",
+      "Sentence Transformers",
+      "FAISS",
+      "Streamlit",
+      "Pandas",
+      "NumPy",
+    ],
+    demo: "https://scenesense.streamlit.app/",
+    source: "https://github.com/bhumi110/SceneSense-Search-AI",
+  },
   {
-    id: 4,
+    id: 7,
     image: anonify,
     title: "Anonify | Anonymous Social Platform",
     description:
@@ -87,7 +143,7 @@ const projects = [
     source: "https://github.com/bhumi110/AnonifyV2.git",
   },
   {
-    id: 5,
+    id: 8,
     image: finlytics,
     title: "Finlytics | Expense Approval & Reimbursement System",
     description:
