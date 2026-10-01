@@ -37,10 +37,8 @@ function Hero() {
           </p>
 
           <p className="hero__bio">
-            Final-year Computer Science student who spends the week between SQL
-            tables, Power BI canvases and Python notebooks — pulling revenue,
-            churn and delivery data apart, then handing back a dashboard someone
-            can actually make a call from.
+            Final-year Computer Science student who enjoys turning messy data and real-world problems into something people can actually understand and use. I work with SQL, Python, Excel, and Power BI to uncover patterns, build dashboards, and create practical, data-driven solutions.
+
           </p>
 
           <div className="hero__actions">
