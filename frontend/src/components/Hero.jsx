@@ -1,331 +1,357 @@
-import React, { useRef, useEffect } from "react";
-import { Button, Typography, Box } from "@mui/material";
-import portfolioVideo from "../assets/portfolio_vd.mp4";
+import React from "react";
+import profilePhoto from "../assets/profile.png";
+
+const SKILLS = [
+  "EDA",
+  "Power BI",
+  "DAX",
+  "SQL",
+  "MySQL",
+  "Python",
+  "Pandas",
+  "Power Query",
+  "Excel",
+  "Data Modelling",
+];
 
 function Hero() {
-  const videoRef = useRef(null);
-  const fadingOutRef = useRef(false);
-  const rafRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const FADE_DURATION = 500;
-    const FADE_OUT_TRIGGER = 0.55;
-
-    function cancelRaf() {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-        rafRef.current = null;
-      }
-    }
-
-    function fadeTo(targetOpacity, duration, onComplete) {
-      cancelRaf();
-      const start = performance.now();
-      const startOpacity = parseFloat(video.style.opacity) || 0;
-      function step(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        video.style.opacity =
-          startOpacity + (targetOpacity - startOpacity) * progress;
-        if (progress < 1) {
-          rafRef.current = requestAnimationFrame(step);
-        } else {
-          rafRef.current = null;
-          onComplete && onComplete();
-        }
-      }
-      rafRef.current = requestAnimationFrame(step);
-    }
-
-    function handleCanPlay() {
-      video.style.opacity = 0;
-      fadingOutRef.current = false;
-      fadeTo(1, FADE_DURATION);
-    }
-
-    function handleTimeUpdate() {
-      const remaining = video.duration - video.currentTime;
-      if (remaining <= FADE_OUT_TRIGGER && !fadingOutRef.current) {
-        fadingOutRef.current = true;
-        fadeTo(0, FADE_DURATION);
-      }
-    }
-
-    function handleEnded() {
-      cancelRaf();
-      video.style.opacity = 0;
-      setTimeout(() => {
-        fadingOutRef.current = false;
-        video.currentTime = 0;
-        video.play().then(() => fadeTo(1, FADE_DURATION));
-      }, 100);
-    }
-
-    video.addEventListener("canplay", handleCanPlay);
-    video.addEventListener("timeupdate", handleTimeUpdate);
-    video.addEventListener("ended", handleEnded);
-
-    return () => {
-      cancelRaf();
-      video.removeEventListener("canplay", handleCanPlay);
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-      video.removeEventListener("ended", handleEnded);
-    };
-  }, []);
+  // Duplicate the list so the marquee loops seamlessly (animates -50%)
+  const track = [...SKILLS, ...SKILLS];
 
   return (
-    <section
-      id="hero"
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        width: "100%",
-        background: "#000",
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <video
-        ref={videoRef}
-        src={portfolioVideo}
-        autoPlay
-        muted
-        playsInline
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          minWidth: "100%",
-          minHeight: "100%",
-          width: "auto",
-          height: "auto",
-          transform: "translate(-50%, -33%)",
-          objectFit: "cover",
-          opacity: 0,
-          zIndex: 0,
-        }}
-      />
+    <section id="hero" className="hero">
+      <style>{css}</style>
 
-      {/*Gradient overlay*/}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 1,
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.72) 100%)",
-        }}
-      />
+      <div className="hero__inner">
+        {/* ---------- Left: copy ---------- */}
+        <div className="hero__copy">
 
-      {/*Vignette*/}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 1,
-          background:
-            "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%)",
-        }}
-      />
+          <h1 className="hero__name">
+            Bhumi
+            <br />
+            <span>Saraogi</span>
+          </h1>
 
-      {/*Hero content*/}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          width: "100%",
-          maxWidth: "820px",
-          padding: "120px 24px 80px",
-          boxSizing: "border-box",
-        }}
-      >
-        {/* Badge */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            padding: "6px 18px",
-            borderRadius: "999px",
-            background: "rgba(242,97,191,0.1)",
-            border: "1px solid rgba(242,97,191,0.28)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            marginBottom: "28px",
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              flexShrink: 0,
-              borderRadius: "50%",
-              background: "#f261bf",
-              display: "inline-block",
-              boxShadow: "0 0 8px #f261bf",
-            }}
-          />
-          <Typography
-            component="span"
-            sx={{
-              color: "#f261bf",
-              letterSpacing: "0.22em",
-              fontWeight: 600,
-              fontSize: { xs: "0.6rem", sm: "0.65rem" },
-              lineHeight: 1,
-              whiteSpace: "nowrap",
-            }}
-          >
-            DATA & BUSINESS ANALYST
-          </Typography>
+          <p className="hero__tagline">
+            I turn messy operational data into decisions people can act on.
+          </p>
+
+          <p className="hero__bio">
+            Final-year Computer Science student who spends the week between SQL
+            tables, Power BI canvases and Python notebooks — pulling revenue,
+            churn and delivery data apart, then handing back a dashboard someone
+            can actually make a call from.
+          </p>
+
+          <div className="hero__actions">
+            <a href="#projects" className="btn btn--primary">
+              View Projects
+            </a>
+            <a
+              href="/BHUMI_RESUME.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--ghost"
+            >
+              View Resume
+            </a>
+          </div>
+
+          <div className="hero__status">
+            <span className="hero__dot" />
+            Open to internships &amp; entry-level analyst roles
+          </div>
         </div>
 
-        {/* Heading */}
-        <Typography
-          component="h1"
-          sx={{
-            fontSize: {
-              xs: "2.1rem",
-              sm: "2.9rem",
-              md: "3.8rem",
-              lg: "4.4rem",
-            },
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            color: "#fff",
-            textShadow: "0 4px 32px rgba(0,0,0,0.7)",
-            mb: 0,
-          }}
-        >
-          I turn data into
-          <br />
-          meaningful insights
-          <br />
-          <span
-            style={{
-              background:
-                "linear-gradient(90deg, #fa529b 10%, #a855f7 55%, #f53689 90%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            that drive decisions.
-          </span>
-        </Typography>
+        {/* ---------- Right: photo ---------- */}
+        <div className="hero__photo-wrap">
+          <div className="hero__photo">
+            <img src={profilePhoto} alt="Bhumi Saraogi" />
+            <div className="hero__photo-fade" />
 
-        <div
-          style={{
-            width: "44px",
-            height: "2px",
-            borderRadius: "2px",
-            background: "linear-gradient(90deg, #6366F1, #f261bf)",
-            margin: "28px auto",
-            opacity: 0.75,
-            flexShrink: 0,
-          }}
-        />
+            {/* <div className="stat stat--left">
+              <strong className="stat__value stat__value--accent">50k</strong>
+              <span className="stat__label">Orders analysed</span>
+            </div>
+            <div className="stat stat--right">
+              <strong className="stat__value">27</strong>
+              <span className="stat__label">Public repos</span>
+            </div> */}
+          </div>
+        </div>
+      </div>
 
-        {/* Subtitle */}
-        <Typography
-          sx={{
-            color: "rgba(255,255,255,0.9)",
-            fontSize: { xs: "0.88rem", sm: "0.95rem", md: "1.05rem" },
-            lineHeight: 1.8,
-            maxWidth: { xs: "100%", sm: "480px" },
-            textShadow: "0 1px 12px rgba(0,0,0,0.6)",
-            mb: { xs: 4, md: 5 },
-          }}
-        >
-           I enjoy working with data to uncover patterns, understand business
-  problems, and turn complex information into clear, actionable insights.
-  With a foundation in SQL, Python, Excel, and Power BI, I build
-  data-driven solutions that support better decisions.
-        </Typography>
-
-        {/* Buttons */}
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: { xs: 1.5, sm: 2 },
-            justifyContent: "center",
-            width: "100%",
-          }}
-        >
-          <Button
-            variant="contained"
-            href="#projects"
-            sx={{
-              background: "linear-gradient(135deg, #6366F1, #7C3AED)",
-              textTransform: "none",
-              px: { xs: 3, sm: 3.5 },
-              py: { xs: 1.1, sm: 1.3 },
-              borderRadius: "12px",
-              fontWeight: 700,
-              fontSize: { xs: "0.88rem", sm: "0.95rem" },
-              letterSpacing: "0.01em",
-              boxShadow:
-                "0 4px 24px rgba(99,102,241,0.45), 0 0 0 1px rgba(99,102,241,0.25)",
-              transition: "all 0.22s ease",
-              "&:hover": {
-                background: "linear-gradient(135deg, #4F52D3, #6A30CC)",
-                boxShadow: "0 8px 32px rgba(99,102,241,0.6)",
-                transform: "translateY(-2px)",
-              },
-            }}
-          >
-            View Work
-          </Button>
-
-          <a
-            href="/BHUMI_RESUME.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
-          >
-            <Button
-              sx={{
-                color: "#fff",
-                textTransform: "none",
-                px: { xs: 3, sm: 3.5 },
-                py: { xs: 1.1, sm: 1.3 },
-                borderRadius: "12px",
-                fontSize: { xs: "0.88rem", sm: "0.95rem" },
-                fontWeight: 600,
-                border: "1px solid rgba(255,255,255,0.18)",
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
-                background: "rgba(255,255,255,0.06)",
-                transition: "all 0.22s ease",
-                minWidth: 0,
-                "&:hover": {
-                  borderColor: "rgba(255,255,255,0.38)",
-                  background: "rgba(255,255,255,0.12)",
-                  transform: "translateY(-2px)",
-                },
-              }}
-            >
-              <i
-                className="fa-regular fa-eye"
-                style={{ marginRight: "8px", fontSize: "0.9rem" }}
-              />
-              Resume
-            </Button>
-          </a>
-        </Box>
+      {/* ---------- Skills marquee ---------- */}
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee__track">
+          {track.map((skill, i) => (
+            <span className="marquee__item" key={i}>
+              <i className="marquee__dot" />
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
+const css = `
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap');
+
+.hero {
+  --bg: #0c0b14;
+  --ink: #f3efe8;
+  --muted: #a8a39b;
+  --accent: #f261bf;
+  --purple: #a855f7;
+  --blue: #6366f1;
+  --line: rgba(255,255,255,0.14);
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 4px 4px;
+  color: var(--ink);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.hero__inner {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 28px 56px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* ---- copy ---- */
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero__eyebrow-line {
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero__name {
+  margin: 0 0 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.hero__name span {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--purple) 55%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero__tagline {
+  margin: 0 0 18px;
+  max-width: 26ch;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.hero__bio {
+  margin: 0 0 34px;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.btn:focus-visible,
+.hero__photo:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.btn--primary {
+  background: linear-gradient(135deg, var(--blue), #7c3aed);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.4);
+}
+.btn--primary:hover {
+  background: linear-gradient(135deg, #4f52d3, #6a30cc);
+  box-shadow: 0 6px 30px rgba(99,102,241,0.55);
+}
+.btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn--ghost:hover { border-color: var(--purple); }
+
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---- photo ---- */
+.hero__photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+.hero__photo {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 0.72;
+  border-radius: 150px 150px 14px 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
+  box-shadow: 0 0 120px rgba(168,85,247,0.3);
+}
+.hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero__photo-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 34%;
+  background: linear-gradient(to top, rgba(12,11,20,0.95), transparent);
+}
+
+.stat {
+  position: absolute;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(12,11,20,0.88);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.stat--left { left: 14px; }
+.stat--right { right: 14px; }
+.stat__value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.stat__value--accent { color: var(--accent); }
+.stat__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---- marquee ---- */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  overflow: hidden;
+  background: rgba(0,0,0,0.25);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: hero-marquee 32s linear infinite;
+}
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.marquee__item::before { content: none; }
+.marquee__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--blue));
+  display: inline-block;
+}
+
+@keyframes hero-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* ---- responsive ---- */
+@media (max-width: 860px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-top: 88px;
+  }
+  .hero__photo-wrap { order: -1; }
+  .hero__photo { max-width: 340px; border-radius: 110px 110px 12px 12px; }
+}
+`;
 
 export default Hero;

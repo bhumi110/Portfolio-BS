@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import Reveal from "./Reveal";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -39,7 +38,7 @@ function Contact() {
           email: formData.email,
           message: formData.message,
         },
-        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       );
 
       setStatus("Message sent successfully");
@@ -55,30 +54,45 @@ function Contact() {
   return (
     <section id="contact" className="contact-section py-5">
       <div className="container">
-        <h1 className="contact-section-title mb-3">Get In Touch</h1>
-        <p className="section-subtitle mb-5">
-          Have an idea or opportunity? Let's build something great.
-        </p>
-
         <div className="row">
           {/* LEFT SIDE */}
-          <div className="col-md-6 mb-4">
+          <div className="col-md-6 mb-5 mb-md-0">
+            <h1 className="contact-section-title">Get In Touch</h1>
+            <p className="section-subtitle mb-4">
+              Have an idea or opportunity? Let's build something great.
+            </p>
+
             <h3 className="connect-title">Let’s connect</h3>
             <p className="connect-text">
-              I'm always open to discussing new projects, creative ideas,
-              or opportunities to be part of your vision.
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision.
             </p>
 
             <p className="email-link">
-              <i className="fa-solid fa-envelope"></i> saraogibhumi@gmail.com
+              <i className="fa-solid fa-envelope"></i>{" "}
+              <a href="mailto:saraogibhumi@gmail.com">saraogibhumi@gmail.com</a>
             </p>
 
-            <a href="https://www.linkedin.com/in/bhumi-saraogi-929473235" className="btn-demo">
+            <div className="social-links">
+              <a
+                href="https://www.linkedin.com/in/bhumi-saraogi-929473235"
+                className="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <i className="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/bhumi110" className="btn-demo">
+              </a>
+              <a
+                href="https://github.com/bhumi110"
+                className="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <i className="fa-brands fa-github"></i>
-            </a>
+              </a>
+            </div>
           </div>
 
           {/* RIGHT SIDE FORM */}

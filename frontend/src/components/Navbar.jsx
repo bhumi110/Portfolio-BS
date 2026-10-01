@@ -1,34 +1,28 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+
+const LINKS = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
   return (
-    <AppBar 
-      position="fixed" 
-      sx={{ 
-        backgroundColor: "#0B0F1A", 
-        boxShadow: "none", 
-        borderBottom: "1px solid rgba(255,255,255,0.1)" 
-      }}
-    >
-      <Toolbar className="container d-flex justify-content-between">
-        
-        {/* Logo */}
-        <Typography class="nav-logo"  href="#hero" component="a">
+    <header className="site-nav">
+      <nav className="site-nav__inner" aria-label="Main">
+        <a className="nav-logo" href="#hero">
           BS.
-        </Typography>
+        </a>
 
-        {/* Nav Links
-        <div>
-          <Button href="#about" sx={{ color: "#ccc" }}>About</Button>
-          <Button href="#skills" sx={{ color: "#ccc" }}>Skills</Button>
-          <Button href="#projects" sx={{ color: "#ccc" }}>Projects</Button>
-          <Button href="#experience" sx={{ color: "#ccc" }}>Experience</Button>
-          <Button href="#contact" sx={{ color: "#ccc" }}>Contact</Button>
+        {/* <div className="site-nav__links">
+          {LINKS.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </div> */}
-
-      </Toolbar>
-    </AppBar>
+      </nav>
+    </header>
   );
 };
 

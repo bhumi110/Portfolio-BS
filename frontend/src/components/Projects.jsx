@@ -1,111 +1,95 @@
 import React from "react";
-
 import projects from "../data/project.data";
-import { useState } from "react";
 import Reveal from "./Reveal";
 
 function Project() {
-  const [selectedProject, setSelectedProject] = useState(null);
-
   return (
-    <>
-      <section id="projects" className="projects-section py-5">
-        <div className="container">
-          <h1 className="section-title mb-3">Projects</h1>
-          <p className="section-subtitle mb-5">
-            Real-world solutions I've designed and built.
-          </p>
+    <section id="projects" className="projects-section py-5">
+      <div className="container">
+        <header className="section-head">
+          <div>
+            <h2 className="section-title">Projects</h2>
+            <p className="section-subtitle">
+              Real-world solutions, each with the repository and dashboard behind it.
+            </p>
+          </div>
+        </header>
 
-          {projects.map((project, index) => (
+        {projects.map((project, index) => {
+          const reversed = index % 2 !== 0;
+
+          return (
             <div
               key={project.id}
-              className={`row align-items-center project-row ${
-                index % 2 !== 0 ? "flex-md-row-reverse" : ""
-              }`}
+              className={`project-row ${reversed ? "project-row--reverse" : ""}`}
             >
-              {/* IMAGE SIDE */}
+              {/* IMAGE */}
               <Reveal
                 as="div"
-                direction={index % 2 !== 0 ? "right" : "left"}
-                className="col-md-6 mb-4 mb-md-0"
+                direction={reversed ? "right" : "left"}
+                className="project-media"
               >
                 <div className="project-image-wrapper">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="project-image "
+                    className="project-image"
                   />
                 </div>
               </Reveal>
 
-              {/* CONTENT SIDE */}
+              {/* DESCRIPTION */}
               <Reveal
                 as="div"
-                direction={index % 2 !== 0 ? "left" : "right"}
+                direction={reversed ? "left" : "right"}
                 delay={200}
-                className="col-md-6"
+                className="project-info"
               >
                 <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
 
                 <div className="tech-stack">
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className="tech-badge">
-                      {tech}
-                    </span>
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="tech-badge">{tech}</span>
                   ))}
                 </div>
 
-                <div className="project-links mt-4">
-                  <a href={project.demo} className="btn-demo">
-                    <i className="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                {project.kpi && (
+                  <div className="kpi-chip">
+                    <strong>{project.kpi.value}</strong> {project.kpi.label}
+                  </div>
+                )}
+
+                <p className="project-summary">{project.summary}</p>
+
+                <ul className="project-highlights">
+                  {project.highlights.map((h, i) => (
+                    <li key={i}>{h}</li>
+                  ))}
+                </ul>
+
+                <div className="project-links">
+                  <a href={project.source} target="_blank" rel="noopener noreferrer" className="link-repo">
+                    Open repository →
                   </a>
-                  <a href={project.source} className="btn-source ms-3">
-                    <i className="fa-brands fa-github"></i> Source
-                  </a>
-                  {/* <button
-                    className="btn-case"
-                    onClick={() => setSelectedProject(project)}
-                  >
-                    Case Study →
-                  </button> */}
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="link-repo">
+                      Live demo →
+                    </a>
+                  )}
                 </div>
               </Reveal>
             </div>
-          ))}
+          );
+        })}
+
+        <div className="github-strip">
+          <span>27 public repositories, and the list keeps moving.</span>
+          <a href="https://github.com/bhumi110" target="_blank" rel="noopener noreferrer">
+            github.com/bhumi110 →
+          </a>
         </div>
-      </section>
-      {/* {selectedProject && (
-        <div className="case-modal-overlay">
-          <div className="case-modal">
-            <button
-              className="close-btn"
-              onClick={() => setSelectedProject(null)}
-            >
-              ×
-            </button>
-
-            <h2>{selectedProject.title}</h2>
-            <p>{selectedProject.description}</p>
-
-            <div className="case-section">
-              <h6>PROBLEM</h6>
-              <p>{selectedProject.problem}</p>
-            </div>
-
-            <div className="case-section">
-              <h6>CHALLENGES</h6>
-              <p>{selectedProject.challenges}</p>
-            </div>
-
-            <div className="case-section">
-              <h6>LESSONS LEARNED</h6>
-              <p>{selectedProject.lessons}</p>
-            </div>
-          </div>
-        </div>
-      )} */}
-    </>
+      </div>
+    </section>
   );
 }
 
