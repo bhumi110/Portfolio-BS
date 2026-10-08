@@ -83,7 +83,7 @@ function Project() {
         })}
 
         <div className="github-strip">
-          <span>27 public repositories, and the list keeps moving.</span>
+          <span>28 public repositories, and the list keeps moving.</span>
           <a href="https://github.com/bhumi110" target="_blank" rel="noopener noreferrer">
             github.com/bhumi110 →
           </a>

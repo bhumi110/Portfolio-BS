@@ -2,6 +2,7 @@
 import ecommerceSales from "../assets/performance_analysis.png";
 import ecommerceLogistics from "../assets/Logistic_analysis.png";
 import customerChurn from "../assets/churn_analysis.png";
+import airlinePassengerSatisfaction from "../assets/airline.png";
 
 const projects = [
   {
@@ -42,22 +43,26 @@ const projects = [
 
   
   {
-    id: 3,
-    title: "E-Commerce Sales Performance Dashboard",
-    year: "2026",
-    kpi: { value: 4, label: "core KPIs tracked" },
-    summary:
-      "An interactive Power BI dashboard that reads e-commerce sales performance across time, product categories and regions.",
-    highlights: [
-      "Modelled revenue, order volume, average order value and quantity sold to read overall business health.",
-      "Compared product categories, regions and category-region pairs to surface top contributors and weak spots.",
-      "Shipped KPI cards, revenue trends and category and regional breakdowns for a business audience, not an analyst.",
-    ],
-    tech: ["Power BI", "DAX", "Power Query", "Data Analysis", "Data Visualization"],
-    image: ecommerceSales,
-    source: "https://github.com/bhumi110/E-Commerce-Sales-Performance-Dashboard",
-    demo: "",
-  },
+  id: 3,
+  title: "Airline Passenger Satisfaction Dashboard",
+  year: "2026",
+  kpi: { value: 4, label: "analytical areas covered" },
+
+  summary:
+    "An interactive Power BI dashboard that analyzes airline passenger satisfaction across service quality, flight delays, travel class and customer segments.",
+
+  highlights: [
+    "Tracked satisfaction rate, dissatisfaction rate, passenger volume and delay metrics to understand overall passenger experience.",
+    "Compared service ratings to identify high-performing services and improvement areas such as inflight Wi-Fi and online booking.",
+    "Analyzed delays, travel class, customer loyalty, age and travel type to identify passenger segments and factors associated with satisfaction."
+  ],
+
+  tech: ["Power BI", "DAX", "Power Query", "Data Analysis", "Data Visualization"],
+
+  image: airlinePassengerSatisfaction,
+  source: "https://github.com/bhumi110/Airline-Passenger-Satisfaction-Analysis-Dashboard.git",
+  demo: "",
+},
 
 ];
 
