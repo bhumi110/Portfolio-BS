@@ -3,10 +3,28 @@ import ecommerceSales from "../assets/performance_analysis.png";
 import ecommerceLogistics from "../assets/Logistic_analysis.png";
 import customerChurn from "../assets/churn_analysis.png";
 import airlinePassengerSatisfaction from "../assets/airline.png";
+import ikea from "../assets/ikea.png";
 
 const projects = [
   {
-    id: 1,
+  id: 1,
+  title: "Customer Analytics & RFM Segmentation Dashboard",
+  year: "2026",
+  kpi: { value: "5.8k", label: "customers segmented" },
+  summary:
+    "Analysed over 1 million retail transactions to identify high-value customers, segment purchasing behaviour and flag potential retention risks for a fictional UK gifting and home decor retailer.",
+  highlights: [
+    "Cleaned and validated 1M+ retail transaction records using SQL Server, resolving mixed date formats, invalid records and 32,907 duplicate rows.",
+    "Applied RFM analysis in Python to segment 5,881 customers into six groups based on recency, purchase frequency and monetary value.",
+    "Built a three-page interactive Power BI dashboard to track revenue, customer value and retention, finding that Champions represented approximately 22% of customers but generated 68% of revenue."
+  ],
+  tech: ["SQL Server", "Python", "Pandas", "Power BI", "DAX"],
+  image: ikea,
+  source: "https://github.com/bhumi110/Customer-Analytics-and-RFM-Segmentation",
+  demo: "",
+},
+  {
+    id: 2,
     title: "E-Commerce Delivery & Logistics Performance Dashboard",
     year: "2026",
     kpi: { value: "50k", label: "orders analysed" },
@@ -17,14 +35,14 @@ const projects = [
       "Compared late-delivery rates, average delays, shipping costs and customer ratings using SQL aggregation and segmentation.",
       "Built a Power BI dashboard with DAX KPIs, slicers and trend views to monitor delivery operations.",
     ],
-    tech: ["Power BI", "MySQL", "SQL", "DAX", "Data Analysis"],
+    tech: ["Power BI", "MySQL", "SQL", "DAX"],
     image: ecommerceLogistics,
     source: "https://github.com/bhumi110/E-Commerce-Delivery-Logistics-Analysis",
     demo: "",
   },
 
   {
-    id: 2,
+    id: 3,
     title: "Customer Churn Analysis Dashboard",
     year: "2026",
     kpi: { value: 6, label: "churn drivers compared" },
@@ -43,7 +61,7 @@ const projects = [
 
   
   {
-  id: 3,
+  id: 4,
   title: "Airline Passenger Satisfaction Dashboard",
   year: "2026",
   kpi: { value: 4, label: "analytical areas covered" },
