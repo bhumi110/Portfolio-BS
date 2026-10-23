@@ -3,7 +3,7 @@ import ecommerceSales from "../assets/performance_analysis.png";
 import ecommerceLogistics from "../assets/Logistic_analysis.png";
 import customerChurn from "../assets/churn_analysis.png";
 import airlinePassengerSatisfaction from "../assets/airline.png";
-import ikea from "../assets/ikea.png";
+import ikea from "../assets/IKEA.png";
 
 const projects = [
   {
