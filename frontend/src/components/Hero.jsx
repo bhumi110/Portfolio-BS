@@ -46,7 +46,7 @@ function Hero() {
               View Projects
             </a>
             <a
-              href="/Bhumi Saraogi_Resume.pdf"
+              href="/Resume_Bhumi Saraogi.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--ghost"
