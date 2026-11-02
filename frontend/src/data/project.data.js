@@ -5,6 +5,7 @@ import customerChurn from "../assets/churn_analysis.png";
 import airlinePassengerSatisfaction from "../assets/airline.png";
 import ikea from "../assets/IKEA.png";
 import nykaaCampaign from "../assets/nykaaCampaign.png";
+import driverPerformance from "../assets/Rapido.png";
 
 const projects = [
   {
@@ -44,22 +45,22 @@ const projects = [
   demo: "",
 },
 {
-    id: 3,
-    title: "E-Commerce Delivery & Logistics Performance Dashboard",
-    year: "2026",
-    kpi: { value: "50k", label: "orders analysed" },
-    summary:
-      "Late-delivery performance across 50,000 orders: which shipping methods, carriers and warehouses slip, and by how much.",
-    highlights: [
-      "Queried 50,000 orders in MySQL to evaluate late deliveries by shipping method, carrier, warehouse and operational factors.",
-      "Compared late-delivery rates, average delays, shipping costs and customer ratings using SQL aggregation and segmentation.",
-      "Built a Power BI dashboard with DAX KPIs, slicers and trend views to monitor delivery operations.",
-    ],
-    tech: ["Power BI", "MySQL", "SQL", "DAX"],
-    image: ecommerceLogistics,
-    source: "https://github.com/bhumi110/E-Commerce-Delivery-Logistics-Analysis",
-    demo: "",
-  },
+  id: 3,
+  title: "Driver Performance & Earnings Intelligence Dashboard",
+  year: "2026",
+  kpi: { value: "17.3k", label: "Rapido drivers analysed" },
+  summary:
+    "Driver performance across earnings, trip completion, service quality and recruitment: identifying operational gaps and opportunities to improve driver engagement.",
+  highlights: [
+    "Cleaned and analyzed a heavily unclean ride-hailing dataset containing 50,000 records and 33 columns, focusing on Rapido driver operations.",
+    "Evaluated driver activation, daily earnings, trip completion, ratings, customer feedback and recruitment performance.",
+    "Built a multi-page Power BI dashboard with DAX KPIs, interactive slicers and performance views to support data-driven operational decisions.",
+  ],
+  tech: ["Power BI", "DAX", "SQL Server"],
+  image: driverPerformance,
+  source: "https://github.com/bhumi110/Rapido-Drive-Performance-Earning-Intelligence.git",
+  demo: "",
+},
 
 ];
 
